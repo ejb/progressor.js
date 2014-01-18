@@ -7,6 +7,7 @@ mpb.init = function( options ){
     this._media = options.media;
     this._bar = options.bar;
     this._text = options.text;
+    this._time = options.time;
     mpb.initPlayer();
     mpb.setUpProgressBar();
 };
@@ -50,10 +51,11 @@ mpb.updateProgress = function() {
 };
 
 mpb.updateTimeCount = function(){
-    var el = document.getElementById('testdiv');
-    var currTime = Math.floor( mpb._media.currentTime );
-    var totalTime = Math.floor( mpb._media.duration );
-    el.innerHTML = currTime + "/" + totalTime;
+    if ( this._time ) {
+        var currTime = Math.floor( mpb._media.currentTime );
+        var totalTime = Math.floor( mpb._media.duration );
+        this._time.innerHTML = currTime + "/" + totalTime;        
+    }
 };
 
 
