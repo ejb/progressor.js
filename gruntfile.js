@@ -5,14 +5,14 @@ module.exports = function(grunt) {
         
         uglify: {
             build: {
-                src: 'mediaprogressbar.js',
-                dest: 'mediaprogressbar.min.js'
+                src: 'progressor.js',
+                dest: 'progressor.min.js'
             }
         },
         
         watch: {
             scripts: {
-                files: ['mediaprogressbar.js'],
+                files: ['progressor.js'],
                 tasks: ['uglify'],
                 options: {
                     spawn: false,

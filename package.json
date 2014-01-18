@@ -1,26 +1,26 @@
 {
-  "name": "mediaprogressbar",
-  "description": "Lightweight, customisable progress bar for HTML5 video & audio",
+  "name": "progressor.js",
+  "description": "Lightweight, customisable progress bars for HTML5 video & audio",
   "version": "0.1.0",
-  "homepage": "https://github.com/ejb/mediaprogressbar",
-  "author": "Elliot Bentley <mail@elliotbentley.com> (http://elliotbentley.com)",
+  "homepage": "https://github.com/ejb/progressor.js",
+  "author": "Elliot Bentley <mail@elliotbentley.com> (http://ejb.github.io)",
   "keywords": [
     "media",
     "audio",
     "video",
     "progress"
   ],
-  "main": "mediaprogressbar.js",
+  "main": "progressor.js",
   "devDependencies": {
     "grunt-contrib-uglify": "~0.3.0",
     "grunt-contrib-watch": "~0.5.3"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ejb/mediaprogressbar.git"
+    "url": "https://github.com/ejb/progressor.js.git"
   },
   "bugs": {
-    "url": "https://github.com/ejb/mediaprogressbar/issues"
+    "url": "https://github.com/ejb/progressor.js/issues"
   },
   "license": "MIT",
   "dependencies": {}
