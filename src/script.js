@@ -7,7 +7,7 @@ mpb.init = function( options ){
     this._media = options.media;
     this._bar = options.bar;
     this._text = options.text;
-    mpb.initPlayer(this._media);
+    mpb.initPlayer();
     mpb.setUpProgressBar();
 }
 
@@ -43,8 +43,8 @@ mpb.setUpProgressBar = function(){
 mpb.updateProgress = function() {
     mpb.updateTimeCount();
     var value = 0;
-    if (audio.currentTime > 0) {
-        value = Math.floor((100 / audio.duration) * audio.currentTime);
+    if (mpb._media.currentTime > 0) {
+        value = Math.floor((100 / mpb._media.duration) * mpb._media.currentTime);
     }
     mpb._bar.childNodes[2].style.width = value + "%";
 }
@@ -69,7 +69,7 @@ mpb.setProgressBar = function(event){
     mpb._media.currentTime = mpb.timeFromCursorPosition(
         mpb._bar,
         event,
-        audio.duration
+        mpb._media.duration
     );
     mpb.updateProgress();
     
