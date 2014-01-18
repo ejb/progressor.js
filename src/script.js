@@ -23,7 +23,7 @@ mpb.initPlayer = function() {
 
 mpb.setUpProgressBar = function(){
     var text = document.createElement('span');
-    text.textContent = this._text;
+    text.textContent = this._text || "";
     this._bar.style.position = "relative";
     this._bar.style.zIndex = 1;
     
