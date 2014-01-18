@@ -1,6 +1,6 @@
 var mpb = {};
 
-mpb.mouseEventRefresh;
+mpb.mouseEventRefresh = '';
 mpb.mouseDown = false;
 
 mpb.init = function( options ){
@@ -9,7 +9,7 @@ mpb.init = function( options ){
     this._text = options.text;
     mpb.initPlayer();
     mpb.setUpProgressBar();
-}
+};
 
 mpb.initPlayer = function() {
     this._media.addEventListener('timeupdate', mpb.updateProgress, false);
@@ -19,7 +19,7 @@ mpb.initPlayer = function() {
         mpb.addClickEvents();
     }, false);
     this.updateTimeCount(this._media);
-}
+};
 
 mpb.setUpProgressBar = function(){
     var text = document.createElement('span');
@@ -38,7 +38,7 @@ mpb.setUpProgressBar = function(){
     this._bar.style.userSelect = "none";
     this._bar.appendChild ( text );
     this._bar.appendChild( progress );
-}
+};
 
 mpb.updateProgress = function() {
     mpb.updateTimeCount();
@@ -47,14 +47,14 @@ mpb.updateProgress = function() {
         value = Math.floor((100 / mpb._media.duration) * mpb._media.currentTime);
     }
     mpb._bar.childNodes[2].style.width = value + "%";
-}
+};
 
 mpb.updateTimeCount = function(){
     var el = document.getElementById('testdiv');
     var currTime = Math.floor( mpb._media.currentTime );
     var totalTime = Math.floor( mpb._media.duration );
     el.innerHTML = currTime + "/" + totalTime;
-}
+};
 
 
 mpb.timeFromCursorPosition = function(element, event, duration){
@@ -62,10 +62,9 @@ mpb.timeFromCursorPosition = function(element, event, duration){
     var pixelsOfBar = event.clientX - dimensions.left;
     var percentToSecs = pixelsOfBar / dimensions.width;
     return percentToSecs * duration;
-}
+};
 
 mpb.setProgressBar = function(event){
-    mpb._media;
     mpb._media.currentTime = mpb.timeFromCursorPosition(
         mpb._bar,
         event,
@@ -73,21 +72,21 @@ mpb.setProgressBar = function(event){
     );
     mpb.updateProgress();
     
-}
+};
 
 mpb.addClickEvents = function(){
-    bar.addEventListener("mousedown", function(ev) {
+    this._bar.addEventListener("mousedown", function(ev) {
         mpb.mouseDown = true;
         mpb.setProgressBar(ev);
     });
-    bar.addEventListener("mouseup", function() {
+    this._bar.addEventListener("mouseup", function() {
         clearInterval(mpb.mouseEventRefresh);
         mpb.mouseDown = false;
     });
-    bar.addEventListener("mousemove", function(e) {
+    this._bar.addEventListener("mousemove", function(e) {
         if ( mpb.mouseDown === true ) {
             mpb.mouseEventRefresh = setInterval( mpb.setProgressBar(e) , 1000 );   
         }
     }); 
-}
+};
 
