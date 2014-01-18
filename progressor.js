@@ -29,7 +29,7 @@ progressor.initProgressBar = function(){
     this._bar.style.zIndex = 1;
     
     var progress = document.createElement('div');
-    progress.id = "progress";
+    progress.id = "progressor-progress";
     progress.style.width = "0%";
     progress.style.position = "absolute";
     progress.style.top = 0;
