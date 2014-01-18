@@ -8,11 +8,11 @@ mpb.init = function( options ){
     this._bar = options.bar;
     this._text = options.text;
     this._time = options.time;
-    mpb.initPlayer();
-    mpb.setUpProgressBar();
+    mpb.initMedia();
+    mpb.initProgressBar();
 };
 
-mpb.initPlayer = function() {
+mpb.initMedia = function() {
     this._media.addEventListener('timeupdate', mpb.updateProgress, false);
     this._media.addEventListener('timeupdate', mpb.updateTimeCount, false);
     this._media.addEventListener('loadedmetadata', function(){
@@ -22,7 +22,7 @@ mpb.initPlayer = function() {
     this.updateTimeCount(this._media);
 };
 
-mpb.setUpProgressBar = function(){
+mpb.initProgressBar = function(){
     var text = document.createElement('span');
     text.textContent = this._text || "";
     this._bar.style.position = "relative";
@@ -72,7 +72,7 @@ mpb.timeFromCursorPosition = function(element, event, duration){
     return percentToSecs * duration;
 };
 
-mpb.setProgressBar = function(event){
+mpb.setMediaProgress = function(event){
     mpb._media.currentTime = mpb.timeFromCursorPosition(
         mpb._bar,
         event,
@@ -85,15 +85,15 @@ mpb.setProgressBar = function(event){
 mpb.addClickEvents = function(){
     this._bar.addEventListener("mousedown", function(ev) {
         mpb.mouseDown = true;
-        mpb.setProgressBar(ev);
+        mpb.setMediaProgress(ev);
     });
-    this._bar.addEventListener("mouseup", function() {
+    document.addEventListener("mouseup", function() {
         clearInterval(mpb.mouseEventRefresh);
         mpb.mouseDown = false;
     });
-    this._bar.addEventListener("mousemove", function(e) {
+    document.addEventListener("mousemove", function(e) {
         if ( mpb.mouseDown === true ) {
-            mpb.mouseEventRefresh = setInterval( mpb.setProgressBar(e) , 1000 );   
+            mpb.mouseEventRefresh = setInterval( mpb.setMediaProgress(e) , 1000 );   
         }
     }); 
 };
