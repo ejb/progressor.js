@@ -50,10 +50,16 @@ mpb.updateProgress = function() {
     mpb._bar.childNodes[2].style.width = value + "%";
 };
 
+mpb.formatTime = function ( time ) {
+    var minutes = Math.floor(time / 60);
+    var seconds = ("0" + Math.round( time - minutes * 60 ) ).slice(-2);
+    return minutes+":"+seconds;    
+}
+
 mpb.updateTimeCount = function(){
     if ( this._time ) {
-        var currTime = Math.floor( mpb._media.currentTime );
-        var totalTime = Math.floor( mpb._media.duration );
+        var currTime = this.formatTime ( mpb._media.currentTime );
+        var totalTime = this.formatTime ( mpb._media.duration );
         this._time.innerHTML = currTime + "/" + totalTime;        
     }
 };
