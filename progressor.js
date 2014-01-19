@@ -15,10 +15,7 @@ progressor.init = function( options ){
 progressor.initMedia = function() {
     this._media.addEventListener('timeupdate', progressor.updateProgress, false);
     this._media.addEventListener('timeupdate', progressor.updateTimeCount, false);
-    this._media.addEventListener('loadedmetadata', function(){
-        progressor.updateTimeCount();
-        progressor.addClickEvents();
-    }, false);
+    this.addClickEvents();
     this.updateTimeCount(this._media);
 };
 
