@@ -1,6 +1,6 @@
 # progressor.js
 
-This a lightweight JavaScript library that does just one thing: it creates customisable progress bars for HTML5 audio and video elements. It was developed for use in [oTranscribe](http://github.com/oTranscribe/oTranscribe), but can be used by anyone who doesn't need a full-blown player with buttons and so on.
+A lightweight JavaScript library that creates customisable progress bars for HTML5 `<audio>` and `<video>` elements. It was developed for use in [oTranscribe](http://github.com/oTranscribe/oTranscribe), and is ideal for anyone who wants a scrubbable progress bar but doesn't need a full-blown player.
 
 ## Demos
 
@@ -8,7 +8,7 @@ Coming soon...
 
 ## How to use
 
-1. Download the latest version and include anywhere on the page:
+1. Download [the latest version](https://raw.github.com/ejb/progressor.js/master/progressor.min.js) and include anywhere on the page:
 
         <script src="path/to/progressor.min.js" type="text/javascript" charset="utf-8"></script>
 
@@ -54,3 +54,11 @@ Coming soon...
         </style>
         
     Don't settle for these ugly default colours; let your imagination run wild! Check out [the demos](#demos) for examples.
+    
+## Development
+
+Pull requests are very welcome. Please develop with `progressor.js` and then compile the minified version by running `grunt`.
+
+## License
+
+MIT, yo.
