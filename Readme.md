@@ -4,8 +4,8 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
 
 ## Demos
 
-* [Simple demo with `<audio>` element](http://jsfiddle.net/88tQN/)
-* [Simple demo with `<video>` element](http://jsfiddle.net/qA6ZU/)
+* [`<audio>` element](http://jsfiddle.net/88tQN/)
+* [`<video>` element](http://jsfiddle.net/qA6ZU/)
 
 More coming soon...
 
