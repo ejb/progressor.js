@@ -8,8 +8,8 @@ progressor.init = function( options ){
     this._bar = options.bar;
     this._text = options.text;
     this._time = options.time;
-    progressor.initMedia();
     progressor.initProgressBar();
+    progressor.initMedia();
 };
 
 progressor.initMedia = function() {
