@@ -4,10 +4,10 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
 
 ## Demos
 
-* [`<audio>` element](http://jsfiddle.net/88tQN/)
-* [`<video>` element](http://jsfiddle.net/qA6ZU/)
-
-More coming soon...
+* Basic progress bar for an `<audio>` element: [jsfiddle.net/88tQN](http://jsfiddle.net/88tQN/)
+* A similar basic bar for a `<video>` element: [jsfiddle.net/qA6ZU](http://jsfiddle.net/qA6ZU/)
+* Progress bar for `<audio>` element with custom style: [jsfiddle.net/G525m](http://jsfiddle.net/G525m/)
+* YouTube-style progress bar that expands on hover: [jsfiddle.net/E2LnD](http://jsfiddle.net/E2LnD/)
 
 ## How to use
 
