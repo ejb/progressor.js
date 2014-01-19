@@ -45,7 +45,7 @@ progressor.updateProgress = function() {
     if (progressor._media.currentTime > 0) {
         value = Math.floor((100 / progressor._media.duration) * progressor._media.currentTime);
     }
-    document.getElementById('progressor-progress').style.width = value + "%";
+    document.getElementById('progressor-progress').clientWidth = value + "%";
 };
 
 progressor.formatTime = function ( time ) {
