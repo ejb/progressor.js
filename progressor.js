@@ -61,6 +61,7 @@ progressor.updateTimeCount = function(){
     if ( this._time ) {
         var currTime = this.formatTime ( progressor._media.currentTime );
         var totalTime = this.formatTime ( progressor._media.duration );
+        if ( isNaN( progressor._media.duration ) === true ) { totalTime = "00:00" };
         this._time.innerHTML = currTime + "/" + totalTime;        
     }
 };
