@@ -32,10 +32,10 @@ Coming soon...
     
         <script>
         progressor.init({
-            media : $('audio'),
-            bar : $('#progressbar'),
-            text : "Cool song",       // text to go inside progress bar (optional)
-            time : $('timestamps')    // element to contain live-updating time (optional)
+            media : $('audio')[0],
+            bar : $('#progressbar')[0],
+            text : "Cool song",          // text to go inside progress bar (optional)
+            time : $('timestamps')[0]    // element to contain live-updating time (optional)
         });
         <script>    
 
