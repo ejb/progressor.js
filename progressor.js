@@ -31,6 +31,7 @@ progressor.initProgressBar = function(){
     var progress = document.createElement('div');
     progress.id = "progressor-progress";
     progress.style.width = "0%";
+    progress.style.height = "100%";
     progress.style.position = "absolute";
     progress.style.top = 0;
     progress.style.zIndex = -1;
