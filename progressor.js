@@ -1,25 +1,21 @@
-var progressor = {};
-
-progressor.mouseEventRefresh = '';
-progressor.mouseDown = false;
-
-progressor.init = function( options ){
+function progressor( options ){
     this._media = options.media;
     this._bar = options.bar;
     this._text = options.text;
     this._time = options.time;
-    progressor.initProgressBar();
-    progressor.initMedia();
+    this.initProgressBar();
+    this.initMedia();
 };
 
-progressor.initMedia = function() {
-    this._media.addEventListener('timeupdate', progressor.updateProgress, false);
-    this._media.addEventListener('timeupdate', progressor.updateTimeCount, false);
+
+progressor.prototype.initMedia = function() {
+    this._media.addEventListener('timeupdate', this.updateProgress.bind(this), false);
+    this._media.addEventListener('timeupdate', this.updateTimeCount.bind(this), false);
     this.addClickEvents();
     this.updateTimeCount(this._media);
 };
 
-progressor.initProgressBar = function(){
+progressor.prototype.initProgressBar = function(){
     var text = document.createElement('span');
     text.textContent = this._text || "";
     this._bar.style.position = "relative";
@@ -39,61 +35,68 @@ progressor.initProgressBar = function(){
     this._bar.appendChild( progress );
 };
 
-progressor.updateProgress = function() {
-    progressor.updateTimeCount();
+progressor.prototype.updateProgress = function() {
+    this.updateTimeCount();
     var value = 0;
-    if (progressor._media.currentTime > 0) {
-        value = Math.floor((100 / progressor._media.duration) * progressor._media.currentTime);
+    if (this._media.currentTime > 0) {
+        value = Math.floor((100 / this._media.duration) * this._media.currentTime);
     }
-    document.getElementById('progressor-progress').clientWidth = value + "%";
+    // this._bar.getElementsByTagName('div')[0].clientWidth = value + "%";
+    this._bar.getElementsByTagName('div')[0].style.width = value + "%";
 };
 
-progressor.formatTime = function ( time ) {
+progressor.prototype.formatTime = function ( time ) {
     var minutes = Math.floor(time / 60);
     var seconds = ("0" + Math.round( time - minutes * 60 ) ).slice(-2);
     return minutes+":"+seconds;    
 }
 
-progressor.updateTimeCount = function(){
+progressor.prototype.updateTimeCount = function(){
     if ( this._time ) {
-        var currTime = this.formatTime ( progressor._media.currentTime );
-        var totalTime = this.formatTime ( progressor._media.duration );
-        if ( isNaN( progressor._media.duration ) === true ) { totalTime = "00:00" };
+        var currTime = this.formatTime ( this._media.currentTime );
+        var totalTime = this.formatTime ( this._media.duration );
+        if ( isNaN( this._media.duration ) === true ) { totalTime = "00:00" };
         this._time.innerHTML = currTime + "/" + totalTime;        
     }
 };
 
 
-progressor.timeFromCursorPosition = function(element, event, duration){
+progressor.prototype.timeFromCursorPosition = function(element, event, duration){
     var dimensions = element.getBoundingClientRect();
     var pixelsOfBar = event.clientX - dimensions.left;
     var percentToSecs = pixelsOfBar / dimensions.width;
     return percentToSecs * duration;
 };
 
-progressor.setMediaProgress = function(event){
-    progressor._media.currentTime = progressor.timeFromCursorPosition(
-        progressor._bar,
+progressor.prototype.setMediaProgress = function(event){
+    this._media.currentTime = this.timeFromCursorPosition(
+        this._bar,
         event,
-        progressor._media.duration
+        this._media.duration
     );
-    progressor.updateProgress();
+    this.updateProgress();
     
 };
 
-progressor.addClickEvents = function(){
-    this._bar.addEventListener("mousedown", function(ev) {
-        progressor.mouseDown = true;
-        progressor.setMediaProgress(ev);
-    });
-    document.addEventListener("mouseup", function() {
-        clearInterval(progressor.mouseEventRefresh);
-        progressor.mouseDown = false;
-    });
-    document.addEventListener("mousemove", function(e) {
-        if ( progressor.mouseDown === true ) {
-            progressor.mouseEventRefresh = setInterval( progressor.setMediaProgress(e) , 1000 );   
+progressor.prototype.addClickEvents = function(){
+    var isMouseDown = false,
+        mouseEventRefresh = '';
+
+    var mouseDown = function(e){
+        isMouseDown = true;
+        this.setMediaProgress(e);
+    }
+    this._bar.addEventListener("mousedown", mouseDown.bind(this) );
+    var mouseUp = function(e){
+        clearInterval(mouseEventRefresh);
+        isMouseDown = false;
+    }
+    this._bar.addEventListener("mouseup", mouseUp.bind(this) );
+    var mouseMove = function(e){
+        if ( isMouseDown === true ) {
+            mouseEventRefresh = setInterval( this.setMediaProgress(e) , 1000 );   
         }
-    }); 
+    }
+    this._bar.addEventListener("mousemove", mouseMove.bind(this) );
 };
 
