@@ -107,7 +107,6 @@ Progressor.prototype.addClickEvents = function(){
     var mouseUp = function(e){
         clearInterval(mouseEventRefresh);
         isMouseDown = false;
-        console.log(wasPlaying);
         if (wasPlaying == true) {
             this._media.play();
             wasPlaying = false;
