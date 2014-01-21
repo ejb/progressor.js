@@ -1,4 +1,4 @@
-function progressor( options ){
+function Progressor( options ){
     this._media = options.media;
     this._bar = options.bar;
     this._text = options.text;
@@ -8,14 +8,14 @@ function progressor( options ){
 };
 
 
-progressor.prototype.initMedia = function() {
+Progressor.prototype.initMedia = function() {
     this._media.addEventListener('timeupdate', this.updateProgress.bind(this), false);
     this._media.addEventListener('timeupdate', this.updateTimeCount.bind(this), false);
     this.addClickEvents();
     this.updateTimeCount(this._media);
 };
 
-progressor.prototype.initProgressBar = function(){
+Progressor.prototype.initProgressBar = function(){
     this._textBox = document.createElement('span');
     this._textBox.textContent = this._text || "";
     this._bar.style.position = "relative";
@@ -35,7 +35,7 @@ progressor.prototype.initProgressBar = function(){
     this._bar.appendChild( this._progress );
 };
 
-progressor.prototype.updateProgress = function() {
+Progressor.prototype.updateProgress = function() {
     this.updateTimeCount();
     var value = 0;
     if (this._media.currentTime > 0) {
@@ -45,13 +45,13 @@ progressor.prototype.updateProgress = function() {
     this._bar.getElementsByTagName('div')[0].style.width = value + "%";
 };
 
-progressor.prototype.formatTime = function ( time ) {
+Progressor.prototype.formatTime = function ( time ) {
     var minutes = Math.floor(time / 60);
     var seconds = ("0" + Math.round( time - minutes * 60 ) ).slice(-2);
     return minutes+":"+seconds;    
 }
 
-progressor.prototype.updateTimeCount = function(){
+Progressor.prototype.updateTimeCount = function(){
     if ( this._time ) {
         var currTime = this.formatTime ( this._media.currentTime );
         var totalTime = this.formatTime ( this._media.duration );
@@ -61,14 +61,14 @@ progressor.prototype.updateTimeCount = function(){
 };
 
 
-progressor.prototype.timeFromCursorPosition = function(element, event, duration){
+Progressor.prototype.timeFromCursorPosition = function(element, event, duration){
     var dimensions = element.getBoundingClientRect();
     var pixelsOfBar = event.clientX - dimensions.left;
     var percentToSecs = pixelsOfBar / dimensions.width;
     return percentToSecs * duration;
 };
 
-progressor.prototype.setMediaProgress = function(event){
+Progressor.prototype.setMediaProgress = function(event){
     this._media.currentTime = this.timeFromCursorPosition(
         this._bar,
         event,
@@ -78,7 +78,7 @@ progressor.prototype.setMediaProgress = function(event){
     
 };
 
-progressor.prototype.remove = function(){
+Progressor.prototype.remove = function(){
     function clearEvents(oldElement){
         var newElement = oldElement.cloneNode(true);
         oldElement.parentNode.replaceChild(newElement, oldElement);
@@ -94,7 +94,7 @@ progressor.prototype.remove = function(){
     clearEvents( this._media );
 }
 
-progressor.prototype.addClickEvents = function(){
+Progressor.prototype.addClickEvents = function(){
     var isMouseDown = false,
         wasPlaying = false,
         mouseEventRefresh = '';
