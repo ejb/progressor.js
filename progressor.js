@@ -80,16 +80,24 @@ progressor.prototype.setMediaProgress = function(event){
 
 progressor.prototype.addClickEvents = function(){
     var isMouseDown = false,
+        wasPlaying = false,
         mouseEventRefresh = '';
 
     var mouseDown = function(e){
         isMouseDown = true;
+        wasPlaying = !this._media.paused;
+        this._media.pause();
         this.setMediaProgress(e);
     }
     this._bar.addEventListener("mousedown", mouseDown.bind(this) );
     var mouseUp = function(e){
         clearInterval(mouseEventRefresh);
         isMouseDown = false;
+        console.log(wasPlaying);
+        if (wasPlaying == true) {
+            this._media.play();
+            wasPlaying = false;
+        };
     }
     this._bar.addEventListener("mouseup", mouseUp.bind(this) );
     var mouseMove = function(e){
