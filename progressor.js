@@ -82,14 +82,12 @@ progressor.prototype.addClickEvents = function(){
     var isMouseDown = false,
         wasPlaying = false,
         mouseEventRefresh = '';
-
     var mouseDown = function(e){
         isMouseDown = true;
         wasPlaying = !this._media.paused;
         this._media.pause();
         this.setMediaProgress(e);
     }
-    this._bar.addEventListener("mousedown", mouseDown.bind(this) );
     var mouseUp = function(e){
         clearInterval(mouseEventRefresh);
         isMouseDown = false;
@@ -99,12 +97,13 @@ progressor.prototype.addClickEvents = function(){
             wasPlaying = false;
         };
     }
-    this._bar.addEventListener("mouseup", mouseUp.bind(this) );
     var mouseMove = function(e){
         if ( isMouseDown === true ) {
             mouseEventRefresh = setInterval( this.setMediaProgress(e) , 1000 );   
         }
     }
+    this._bar.addEventListener("mousedown", mouseDown.bind(this) );
+    this._bar.addEventListener("mouseup", mouseUp.bind(this) );
     this._bar.addEventListener("mousemove", mouseMove.bind(this) );
 };
 
