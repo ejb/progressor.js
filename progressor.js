@@ -123,3 +123,8 @@ Progressor.prototype.addClickEvents = function(){
     this._bar.addEventListener("mousemove", mouseMove.bind(this) );
 };
 
+var progressor = {
+    init : function(){
+        console.error("'progressor.init()' is deprecated. Please use 'Progressor()'.");
+    }
+}
