@@ -20,9 +20,10 @@ Progressor.prototype.initProgressBar = function(){
     this._textBox.textContent = this._text || "";
     this._bar.style.position = "relative";
     this._bar.style.zIndex = 1;
+    this._bar.className = this._bar.className + "progressor";
     
     this._progress = document.createElement('div');
-    this._progress.id = "progressor-progress";
+    this._progress.className = "progressor-progress";
     this._progress.style.width = "0%";
     this._progress.style.height = "100%";
     this._progress.style.position = "absolute";
@@ -90,6 +91,7 @@ Progressor.prototype.remove = function(){
     this._bar.style.zIndex = "";
     this._bar.style.webkitUserSelect = "";
     this._bar.style.userSelect = "";
+    this._bar.classList.remove("progressor");
     clearEvents( this._bar );
     clearEvents( this._media );
 }
