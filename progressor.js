@@ -120,8 +120,8 @@ Progressor.prototype.addClickEvents = function(){
         }
     }
     this._bar.addEventListener("mousedown", mouseDown.bind(this) );
-    this._bar.addEventListener("mouseup", mouseUp.bind(this) );
-    this._bar.addEventListener("mousemove", mouseMove.bind(this) );
+    document.addEventListener("mouseup", mouseUp.bind(this) );
+    document.addEventListener("mousemove", mouseMove.bind(this) );
 };
 
 var progressor = {
