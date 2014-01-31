@@ -4,7 +4,12 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
 
 ## Demos
 
-Coming soon...
+(These are now out of date. New ones coming soon.)
+
+* Basic progress bar for an `<audio>` element: [jsfiddle.net/88tQN](http://jsfiddle.net/88tQN/)
+* A similar basic bar for a `<video>` element: [jsfiddle.net/qA6ZU](http://jsfiddle.net/qA6ZU/)
+* Progress bar for `<audio>` element with custom style: [jsfiddle.net/G525m](http://jsfiddle.net/G525m/)
+* YouTube-style progress bar that expands on hover: [jsfiddle.net/E2LnD](http://jsfiddle.net/E2LnD/)
 
 ## How to use
 
@@ -20,7 +25,7 @@ Coming soon...
 3. Call `progressor.init()` with options:
 
         <script>
-        progressor.init({
+        var myProgressBar = new Progressor({
             media : document.getElementsByTagName('audio')[0],
             bar : document.getElementById('progressbar'),
             text : "Cool song",                             // text to go inside progress bar (optional)
@@ -31,7 +36,7 @@ Coming soon...
     Or do it jQuery style:
     
         <script>
-        progressor.init({
+        var jqProgressBar = new Progressor({
             media : $('audio')[0],
             bar : $('#progressbar')[0],
             text : "Cool song",          // text to go inside progress bar (optional)
@@ -42,18 +47,35 @@ Coming soon...
 4. Add a height, width and background to the bar (and the internal progress bar, `#progressor-progress`):
 
         <style>
-        #progressbar {
+        .progressor {
           width: 1000px;
           height: 20px;
           background: grey;
         }
 
-        #progressor-progress {
+        .progressor-progress {
           background: black;
         }
         </style>
         
     Don't settle for these ugly default colours; let your imagination run wild! Check out [the demos](#demos) for examples.
+    
+5. No longer need an instance of progressor.js? No problem:
+
+    <script>    
+    myProgressBar.remove();
+    </script>
+    
+## Changelog
+
+### v0.2.0
+
+- Changed API for creating new instance of Progessor
+- Multiple instances of Progressor now supported
+- Audio is now paused when scrubbing for better performance
+- Progressor instances can now be deleted
+- Added deprecation message for backwards compatibiliy
+- Progress bars must now be styled by class, not id
     
 ## Development
 
