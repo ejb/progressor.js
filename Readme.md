@@ -44,7 +44,7 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
         });
         <script>    
 
-4. Add a height, width and background to the bar (and the internal progress bar, `#progressor-progress`):
+4. The bar and its internal progress bar are given CSS classes '.progressor' and '.progressor-progress'. Make sure add a height, width and background to the bar:
 
         <style>
         .progressor {
