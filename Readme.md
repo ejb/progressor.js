@@ -66,10 +66,10 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
     
 ## Browser support
 
-- [x] Chrome 32+
-- [x] Safari 7+
-- [x] Internet Explorer 11+
-- [x] Firefox 28+
+- ✓ Chrome 32+
+- ✓ Safari 7+
+- ✓ Internet Explorer 11+
+- ✓ Firefox 28+
     
 ## Changelog
 
