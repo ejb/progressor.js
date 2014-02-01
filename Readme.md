@@ -60,9 +60,9 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
     
 5. No longer need an instance of progressor.js? No problem:
 
-    <script>    
-    myProgressBar.remove();
-    </script>
+        <script>    
+        myProgressBar.remove();
+        </script>
     
 ## Browser support
 
