@@ -73,6 +73,10 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
     
 ## Changelog
 
+### v0.2.2
+
+- Fixed class name bug
+
 ### v0.2.1
 
 - Fixed loss-of-focus bug
