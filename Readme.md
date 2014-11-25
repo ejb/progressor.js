@@ -42,7 +42,7 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
         });
         <script>    
 
-4. The bar and its internal progress bar are given CSS classes '.progressor' and '.progressor-progress'. Make sure add a height, width and background to the bar:
+4. The bar and its internal progress bar are given CSS classes '.progressor' and '.progressor-progress'. Make sure to add a height, width and background to the bar:
 
         <style>
         .progressor {
@@ -60,18 +60,22 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
     
 5. No longer need an instance of progressor.js? No problem:
 
-    <script>    
-    myProgressBar.remove();
-    </script>
+        <script>    
+        myProgressBar.remove();
+        </script>
     
 ## Browser support
 
-- [x] Chrome 32+
-- [x] Safari 7+
-- [x] Internet Explorer 11+
-- [x] Firefox 28+
+- ✓ Chrome 32+
+- ✓ Safari 7+
+- ✓ Internet Explorer 11+
+- ✓ Firefox 28+
     
 ## Changelog
+
+### v0.2.2
+
+- Fixed class name bug
 
 ### v0.2.1
 

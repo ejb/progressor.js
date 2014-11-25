@@ -20,7 +20,7 @@ Progressor.prototype.initProgressBar = function(){
     this._textBox.textContent = this._text || "";
     this._bar.style.position = "relative";
     this._bar.style.zIndex = 1;
-    this._bar.className = this._bar.className + "progressor";
+    this._bar.className = this._bar.className + " progressor";
     
     this._progress = document.createElement('div');
     this._progress.className = "progressor-progress";
