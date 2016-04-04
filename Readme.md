@@ -73,6 +73,10 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
     
 ## Changelog
 
+### v0.4.0
+
+- More precise progress bar
+
 ### v0.3.0
 
 - Added bower.json
