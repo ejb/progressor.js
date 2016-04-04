@@ -40,7 +40,7 @@ Progressor.prototype.updateProgress = function() {
     this.updateTimeCount();
     var value = 0;
     if (this._media.currentTime > 0) {
-        value = Math.floor((100 / this._media.duration) * this._media.currentTime);
+        value =(100 / this._media.duration) * this._media.currentTime;
     }
     // this._bar.getElementsByTagName('div')[0].clientWidth = value + "%";
     this._bar.getElementsByTagName('div')[0].style.width = value + "%";

@@ -1,0 +1,21 @@
+{
+  "name": "progressor",
+  "main": "progressor.js",
+  "version": "0.3.0",
+  "homepage": "https://github.com/ejb/progressor",
+  "authors": [
+    "ejb <mail@elliotbentley.com>"
+  ],
+  "description": "Lightweight, customisable progress bars for HTML5 video & audio",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
