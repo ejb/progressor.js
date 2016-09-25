@@ -73,6 +73,11 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
     
 ## Changelog
 
+### v1.0.0
+
+- Support for common module systems
+- Remove long-deprecated v0.1.0 API
+
 ### v0.4.0
 
 - More precise progress bar
@@ -91,11 +96,11 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
 
 ### v0.2.0
 
-- Changed API for creating new instance of Progessor
+- Changed API for creating new instance of Progressor
 - Multiple instances of Progressor now supported
 - Audio is now paused when scrubbing for better performance
 - Progressor instances can now be deleted
-- Added deprecation message for backwards compatibiliy
+- Added deprecation message for backwards compatibly
 - Progress bars must now be styled by class, not id
     
 ## Development

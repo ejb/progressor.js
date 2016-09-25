@@ -1,7 +1,7 @@
 {
   "name": "progressor.js",
   "description": "Lightweight, customisable progress bars for HTML5 video & audio",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/ejb/progressor.js",
   "author": "Elliot Bentley <mail@elliotbentley.com> (http://ejb.github.io)",
   "keywords": [
