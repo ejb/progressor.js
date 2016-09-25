@@ -1,0 +1,11 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
+
+<script>
+require(['../progressor'], function(Progressor) {
+    if (typeof Progressor === 'function') {
+        alert('Progressor loaded in OK');        
+    } else {
+        alert('Progressor did not load in correctly');
+    }
+});
+</script>

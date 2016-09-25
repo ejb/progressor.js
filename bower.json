@@ -1,7 +1,7 @@
 {
   "name": "progressor",
   "main": "progressor.js",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "homepage": "https://github.com/ejb/progressor",
   "authors": [
     "ejb <mail@elliotbentley.com>"
