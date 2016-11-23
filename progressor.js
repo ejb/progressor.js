@@ -2,7 +2,7 @@
     if (typeof module != 'undefined') module.exports = definition();
     else if (typeof define == 'function' && typeof define.amd == 'object') define(definition);
     else this[name] = definition();
-}('progressor', function() {
+}('Progressor', function() {
     function Progressor( options ){
         this._media = options.media;
         this._bar = options.bar;
