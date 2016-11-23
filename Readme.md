@@ -73,6 +73,10 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
     
 ## Changelog
 
+### v1.1.0
+
+- Add `hours` option
+
 ### v1.0.1
 
 - Bugfix: work as a global
