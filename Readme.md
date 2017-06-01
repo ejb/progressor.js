@@ -29,7 +29,7 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
             text : "Cool song",                             // text to go inside progress bar (optional)
             time : document.getElementById('timestamps')    // element to contain live-updating time (optional)
         });
-        <script>
+        </script>
             
     Or do it jQuery style:
     
@@ -40,7 +40,7 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
             text : "Cool song",          // text to go inside progress bar (optional)
             time : $('timestamps')[0]    // element to contain live-updating time (optional)
         });
-        <script>    
+        </script>    
 
 4. The bar and its internal progress bar are given CSS classes '.progressor' and '.progressor-progress'. Make sure to add a height, width and background to the bar:
 
@@ -72,6 +72,14 @@ A lightweight JavaScript library that creates customisable progress bars for HTM
 - ✓ Firefox 28+
     
 ## Changelog
+
+### v1.1.0
+
+- Add `hours` option
+
+### v1.0.1
+
+- Bugfix: work as a global
 
 ### v1.0.0
 

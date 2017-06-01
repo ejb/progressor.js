@@ -2,12 +2,13 @@
     if (typeof module != 'undefined') module.exports = definition();
     else if (typeof define == 'function' && typeof define.amd == 'object') define(definition);
     else this[name] = definition();
-}('progressor', function() {
+}('Progressor', function() {
     function Progressor( options ){
         this._media = options.media;
         this._bar = options.bar;
         this._text = options.text;
         this._time = options.time;
+        this._hours = options.hours;
         this.initProgressBar();
         this.initMedia();
     };
@@ -52,9 +53,19 @@
     };
 
     Progressor.prototype.formatTime = function ( time ) {
-        var minutes = Math.floor(time / 60);
-        var seconds = ("0" + Math.round( time - minutes * 60 ) ).slice(-2);
-        return minutes+":"+seconds;    
+        var hours = Math.floor(time / 3600).toString();
+        if (this._hours) {
+            var minutes = ("0" + Math.floor(time / 60) % 60).slice(-2);
+            var seconds = ("0" + Math.floor( time % 60 )).slice(-2);            
+            if (hours !== '0') {
+                return hours + ":" + minutes + ":" + seconds;
+            }
+            return minutes + ":" + seconds;
+        } else {
+            var minutes = Math.floor(time / 60);
+            var seconds = ("0" + Math.round( time - minutes * 60 ) ).slice(-2);
+            return minutes+":"+seconds;
+        }
     }
 
     Progressor.prototype.updateTimeCount = function(){
